@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Onsen UI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+        <script src="js/onsenui.min.js"></script>
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/index.js"></script>
+
+    </head>
+    <body>
+
+        <ons-navigator id="myNavigator" page="connexion_page"></ons-navigator>
+
+
+
+        <template id="connexion_page">
+
+            <ons-page>
+                <ons-toolbar>
+                    <div class="center">Onsen UI</div>
+                </ons-toolbar>
+                <div style="text-align: center; margin-top: 30px;">
+                    <p>
+                        <ons-input id="username" modifier="underbar" placeholder="Pseudo" float></ons-input>
+                    </p>
+                    <p>
+                        <ons-input id="password" modifier="underbar" type="password" placeholder="Mot de passe" float></ons-input>
+                    </p>
+                    <p style="margin-top: 30px;">
+                        <ons-button onclick="connexion()">Connexion</ons-button>
+                    </p>
+                </div>
+            </ons-page>
+        </template>
+
+        <template id="main_temp">
+            <ons-page>
+            <ons-splitter>
+                <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+                    <ons-page>
+                        <ons-list>
+                            <ons-list-item onclick="fn.load('ajout_page')" tappable>
+                                Ajout
+                            </ons-list-item>
+                            <ons-list-item onclick="deconnexion()" tappable>
+                                Deconnexion
+                            </ons-list-item>
+                        </ons-list>
+                        <div style="position:absolute; bottom: 10px; left: 10px"> PSEUDO </div>
+                    </ons-page>
+                </ons-splitter-side>
+                <ons-splitter-content id="content" page="main_page"></ons-splitter-content>
+            </ons-splitter>
+
+
+
+
+
+
+            <template id="main_page">
+                <ons-page>
+                    <ons-toolbar>
+                        <div class="left">
+                            <ons-toolbar-button onclick="fn.open()">
+                                <ons-icon icon="md-menu"></ons-icon>
+                            </ons-toolbar-button>
+                        </div>
+                        <div class="center">
+                            Onsen UI
+                        </div>
+                    </ons-toolbar>
+
+                    <ons-list>
+                        <ons-list-header>Carnet d'adresses</ons-list-header>
+                        <ons-list-item onclick=fn.load('consult_page') modifier="chevron" tappable>
+                            <div class="left">
+                                <img class="list-item__thumbnail" src="http://scrat.hellocoton.fr/img/classic/avatars-de-facebook-avec-de-vrais-visages-2561429.jpg">
+                            </div> Personne A
+                        </ons-list-item>
+
+                        <ons-list-item onclick=fn.load('consult_page') modifier="chevron" tappable>
+                            <div class="left">
+                                <img class="list-item__thumbnail" src="http://scrat.hellocoton.fr/img/classic/avatars-de-facebook-avec-de-vrais-visages-2561429.jpg">
+                            </div> Personne B
+                        </ons-list-item>
+                    </ons-list>
+                </ons-page>
+            </template>
+
+
+
+
+
+
+
+
+            <template id="consult_page">
+                <ons-page>
+                    <ons-toolbar>
+                        <div class="left">
+                            <ons-toolbar-button onclick="fn.open()">
+                                <ons-icon icon="md-menu"></ons-icon>
+                            </ons-toolbar-button>
+                        </div>
+                        <div class="center">
+                            Onsen UI
+                        </div>
+                    </ons-toolbar>
+                    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+                        <div style="text-align: center; margin-top: 30px;">
+
+                            <img src="http://scrat.hellocoton.fr/img/classic/avatars-de-facebook-avec-de-vrais-visages-2561429.jpg">
+
+                    <p>
+                        <span>NOM</span>
+                    </p>
+                    <p>
+                        <span>PRENOM</span>
+                    </p>
+                    <p>
+                        <span>DATE DE NAISSANCE</span>
+                    </p>
+                    <p>
+                        <span>ADRESSE</span>
+                    </p>
+                    <p>
+                        <ons-button onClick="fn.load('main_page')">Supprimer</ons-button>
+                    </p>
+                    </div>
+                    </p>
+                </ons-page>
+            </template>
+
+
+
+
+
+
+
+
+
+
+            <template id="ajout_page">
+                <ons-page>
+                    <ons-toolbar>
+                        <div class="left">
+                            <ons-toolbar-button onclick="fn.open()">
+                                <ons-icon icon="md-menu"></ons-icon>
+                            </ons-toolbar-button>
+                        </div>
+                        <div class="center">
+                            Onsen UI
+                        </div>
+                    </ons-toolbar>
+
+                    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+                        <div style="text-align: center; margin-top: 30px;">
+                    <p>
+                        <ons-input modifier="material" placeholder="Nom"></ons-input>
+                    </p>
+                    <p>
+                        <ons-input modifier="material" placeholder="Prenom"></ons-input>
+                    </p>
+                    <p>
+                        <ons-input modifier="material" placeholder="Date de naissance"></ons-input>
+                    </p>
+                    <p>
+                        <ons-input modifier="material" placeholder="Adresse"></ons-input>
+                    </p>
+                    <p>
+                        <ons-button onClick="fn.load('main_page')">Valider</ons-button>
+                    </p>
+                    </div>
+                    </p>
+
+                </ons-page>
+            </template>
+            </ons-page>
+        </template>
+
+
+
+
+
+    </body>
+</html>
